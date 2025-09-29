@@ -134,10 +134,10 @@ Dave</textarea>
     ratings: (dk) => `wok_ratings_${dk}`
   };
 
-  function parseRoster(t){ return Array.from(new Set(t.split(/[\\n,]+/).map(s=>s.trim()).filter(Boolean))); }
+  function parseRoster(t){ return Array.from(new Set(t.split(/[\n,]+/).map(s=>s.trim()).filter(Boolean))); }
   function loadRoster(){ const raw=localStorage.getItem(LS.roster); return raw?JSON.parse(raw):DEFAULT_NAMES.slice(); }
   function saveRoster(list){ localStorage.setItem(LS.roster, JSON.stringify(list)); }
-  function renderRosterText(list){ rosterTA.value = list.join("\\n"); }
+  function renderRosterText(list){ rosterTA.value = list.join("\n"); }
   let names = loadRoster(); renderRosterText(names); countEl.textContent = names.length;
 
   function currentPicks(){ return JSON.parse(localStorage.getItem(LS.picks()) || "[]"); }
